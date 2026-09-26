@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATELIER — Simple Shopping</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>ATELIER</span>
+                <small>EST. 2026</small>
+            </a>
+
+            <nav class="navigation">
+                <a href="#shop">Shop</a>
+                <a href="#price">Price List</a>
+                <a href="#features">Features</a>
+            </nav>
+
+            <div class="header-right">
+                <span class="bag-icon">◌</span>
+                <span>Shopping</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">THE SIMPLE SHOPPING EXPERIENCE</p>
+
+                <h1>
+                    Choose your
+                    <em>style.</em>
+                </h1>
+
+                <p class="hero-description">
+                    Một trải nghiệm mua sắm đơn giản, tinh tế
+                    và được xây dựng hoàn toàn bằng HTML, CSS & JavaScript.
+                </p>
+
+                <a href="#shop" class="hero-button">
+                    Explore collection
+                    <span>→</span>
+                </a>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=85" alt="Fashion collection">
+                <div class="hero-tag">
+                    <span>NEW</span>
+                    <strong>Collection<br>2026</strong>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="shop-section" id="shop">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">01 — SHOPPING</p>
+                    <h2>Find your<br><em>favorite.</em></h2>
+                </div>
+
+                <p class="section-intro">
+                    Chọn sản phẩm, nhập số lượng và để hệ thống
+                    tự động tính toán số tiền bạn cần thanh toán.
+                </p>
+            </div>
+
+
+            <div class="shop-layout">
+
+                <div class="product-showcase">
+
+                    <div class="product-image-wrapper">
+                        <span class="product-number">01 / 03</span>
+
+                        <img
+                            id="productImage"
+                            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85"
+                            alt="Áo">
+
+                        <div class="image-label">
+                            <span>ATELIER</span>
+                            <span>ESSENTIAL</span>
+                        </div>
+                    </div>
+
+                    <div class="product-caption">
+                        <div>
+                            <p>SELECTED ITEM</p>
+                            <h3 id="productName">Áo</h3>
+                        </div>
+
+                        <strong id="productPrice">200.000đ</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="shopping-panel">
+
+                    <div class="panel-top">
+                        <span>SHOPPING CART</span>
+                        <span>01</span>
+                    </div>
+
+                    <div class="form-area">
+
+                        <div class="form-group">
+                            <label for="product">SẢN PHẨM</label>
+
+                            <div class="select-wrapper">
+                                <select id="product" onchange="changeProductImage()">
+                                    <option value="ao">Áo — 200.000đ</option>
+                                    <option value="quan">Quần — 300.000đ</option>
+                                    <option value="giay">Giày — 500.000đ</option>
+                                </select>
+                                <span>⌄</span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="quantity">SỐ LƯỢNG</label>
+
+                            <div class="quantity-control">
+                                <button type="button" onclick="decreaseQuantity()">−</button>
+
+                                <input
+                                    type="number"
+                                    id="quantity"
+                                    value="1"
+                                    min="1"
+                                    max="99">
+
+                                <button type="button" onclick="increaseQuantity()">+</button>
+                            </div>
+                        </div>
+
+
+                        <button class="calculate-button" onclick="calculatePrice()">
+                            <span>TÍNH TIỀN</span>
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+
+                    <div class="result-box">
+
+                        <div class="result-heading">
+                            <span>ORDER SUMMARY</span>
+                            <span>VND</span>
+                        </div>
+
+                        <div class="result-row">
+                            <span>Tiền hàng</span>
+                            <strong id="subtotal">0đ</strong>
+                        </div>
+
+                        <div class="result-row discount-row">
+                            <span>Giảm giá</span>
+                            <strong id="discount">0đ</strong>
+                        </div>
+
+                        <div class="result-line"></div>
+
+                        <div class="result-total">
+                            <span>Phải trả</span>
+                            <strong id="total">0đ</strong>
+                        </div>
+
+                        <div class="discount-message" id="discountMessage">
+                            Chọn sản phẩm để bắt đầu mua sắm.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="color-section">
+
+            <div class="color-content">
+                <p class="eyebrow">02 — PERSONALIZE</p>
+
+                <h2>
+                    Make it<br>
+                    <em>yours.</em>
+                </h2>
+
+                <p>
+                    Thay đổi màu nền trang bằng JavaScript.
+                    Đây là một ví dụ trực quan về cách JavaScript
+                    tương tác với giao diện website.
+                </p>
+            </div>
+
+            <div class="color-picker">
+
+                <p>CHOOSE BACKGROUND</p>
+
+                <div class="color-options">
+
+                    <button
+                        class="color-button blue"
+                        onclick="changeBackground('blue')">
+                        <span></span>
+                        Xanh
+                    </button>
+
+                    <button
+                        class="color-button red"
+                        onclick="changeBackground('red')">
+                        <span></span>
+                        Đỏ
+                    </button>
+
+                    <button
+                        class="color-button yellow"
+                        onclick="changeBackground('yellow')">
+                        <span></span>
+                        Vàng
+                    </button>
+
+                    <button
+                        class="color-button reset"
+                        onclick="changeBackground('default')">
+                        <span></span>
+                        Mặc định
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="price-section" id="price">
+
+            <div class="price-header">
+
+                <div>
+                    <p class="eyebrow">03 — COLLECTION</p>
+
+                    <h2>
+                        Price<br>
+                        <em>list.</em>
+                    </h2>
+                </div>
+
+                <div class="price-action">
+                    <p>
+                        Khám phá toàn bộ sản phẩm
+                        và mức giá hiện tại.
+                    </p>
+
+                    <button onclick="showPriceList()">
+                        <span>XEM BẢNG GIÁ</span>
+                        <span>+</span>
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="priceList" class="price-list"></div>
+
+        </section>
+
+
+        <section class="features-section" id="features">
+
+            <div class="features-title">
+                <p class="eyebrow">04 — JAVASCRIPT</p>
+                <h2>Built with<br><em>purpose.</em></h2>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <span>01</span>
+                    <h3>Dynamic Image</h3>
+                    <p>
+                        Hình ảnh sản phẩm tự động
+                        thay đổi khi người dùng chọn sản phẩm.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <span>02</span>
+                    <h3>Smart Pricing</h3>
+                    <p>
+                        Tự động tính tiền hàng và áp dụng
+                        giảm giá 10% khi đủ điều kiện.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <span>03</span>
+                    <h3>Interactive UI</h3>
+                    <p>
+                        Các nút điều khiển phản hồi
+                        trực tiếp thông qua JavaScript.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <h2>ATELIER</h2>
+                <p>
+                    A simple shopping experience
+                    built with HTML, CSS & JavaScript.
+                </p>
+            </div>
+
+            <div class="footer-info">
+                <span>WEB DEVELOPMENT</span>
+                <span>PHENIKAA UNIVERSITY</span>
+                <span>2026</span>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 ATELIER</span>
+            <span>Simple. Elegant. Interactive.</span>
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
